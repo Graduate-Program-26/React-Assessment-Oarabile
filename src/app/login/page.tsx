@@ -1,7 +1,10 @@
+import { SignIn } from "@/src/components/auth/sign-in-button"
+
 export default function Page(){
     return(
         <main>
-            <div>This is the login page</div>
+            <p>Press this buttton to be able to go to dashboard</p>
+            <SignIn />
         </main>
     )
 }
