@@ -1,8 +1,8 @@
-export interface user {
+export interface User{
     login: string;
     avatarUrl: string;
-    followers: string; // api str
-    following: string; //api
+    followers: number; // api str
+    following: number; //api
     organizations: string; //api
     repos: string; //api
     events: string; //api
@@ -14,30 +14,30 @@ export interface user {
     updatedAt: string; 
 }
 
-export interface userRepo{
+export interface UserRepo{
     name: string;
     private: boolean;
-    owner: user;
+    owner: User;
     description: string;
     commits: string; //api
     merges: string; //api
     pulls: string;
 }
 
-interface actor{
+interface Actor{
     id: number;
     login: string;
     displayLogin: string;
 }
 
-interface repo{
+interface Repo{
     name: string;
     url: string;
 }
 
-export interface event{
+export interface Event{
     type: string;
-    actor: actor;
-    repo:  repo;
+    actor: Actor;
+    repo:  Repo;
     createdAt: string;
 }
