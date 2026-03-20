@@ -1,27 +1,29 @@
 export interface User{
     login: string;
-    avatarUrl: string;
-    followers: number; // api str
-    following: number; //api
-    organizations: string; //api
-    repos: string; //api
-    events: string; //api
-    recieved_events: string; //api
-    company: string;
-    blog: string;
-    hireable: string;
-    createdAt: string;
-    updatedAt: string; 
+    avatar_url: string;
+    followers: number; 
+    following: number; 
+    company: string | null;
+    blog: string|null;
+    hireable: boolean | null ;
+    created_at: string;
+    updated_at: string; 
+    name: string |null;
+    bio: string | null;
+    html_url: string;
+    public_repos: number;
 }
 
 export interface UserRepo{
+    id: number;
     name: string;
     private: boolean;
     owner: User;
-    description: string;
-    commits: string; //api
-    merges: string; //api
-    pulls: string;
+    description: string | null;
+    stargazers_count: number;
+    language: string | null;
+    updated_at: string; 
+    html_url: string;
 }
 
 interface Actor{
@@ -39,5 +41,5 @@ export interface Event{
     type: string;
     actor: Actor;
     repo:  Repo;
-    createdAt: string;
+    created_at: string;
 }
