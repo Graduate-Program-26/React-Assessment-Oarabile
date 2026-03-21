@@ -1,7 +1,12 @@
 import { Event, User, UserRepo } from "../types/types";
+import token
 
 export async function githubUser(username: string): Promise<User>{
-    const data = await fetch(`https://api.github.com/users/${username}`)
+    const data = await fetch(`https://api.github.com/users/${username}`,{
+        headers: {
+            Authorization : `Bearer ${token}`
+        }
+    });
     const res : User = await data.json();
     return res;
 }
