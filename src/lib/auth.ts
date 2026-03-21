@@ -9,6 +9,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         token.accessToken = account.access_token;
       }
       return token
+    },
+    session({session, token}){
+      return{
+        ...session,
+        accessToken: token.accessToken,
+      }
     }
   }
 })
