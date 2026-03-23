@@ -1,7 +1,8 @@
-import { auth } from "./lib/auth";
+import { auth  } from "./lib/auth";
+import type { NextAuthRequest } from "next-auth";
 
 //path protetion code
-export const proxy = auth((req) => {
+export const proxy = auth((req : NextAuthRequest) => {
     if(!req.auth && (req.nextUrl.pathname !== "/login") && (req.nextUrl.pathname !== "/") && !(req.nextUrl.pathname.startsWith("/demo/"))){
         const newUrl = new URL("/login", req.nextUrl.origin);
         return Response.redirect(newUrl);
