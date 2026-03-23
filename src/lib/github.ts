@@ -1,6 +1,6 @@
 import { Event, User, UserRepo } from "../types/types";
 
-export async function githubUser(username: string, token? : string): Promise<User>{
+export async function githubUser(username: string | null | undefined, token? : string): Promise<User>{
     try{
         const headers: HeadersInit = token ? { Authorization: `Bearer ${token}`} : {};
         const data = await fetch(`https://api.github.com/users/${username}`,{ headers});
@@ -11,7 +11,7 @@ export async function githubUser(username: string, token? : string): Promise<Use
     }   
 }
 
-export async function githubRepo(username: string, token? : string): Promise<UserRepo[]>{
+export async function githubRepo(username: string | null | undefined, token? : string): Promise<UserRepo[]>{
     try{
         const headers: HeadersInit = token ? { Authorization: `Bearer ${token}`} : {};
         const data = await fetch(`https://api.github.com/users/${username}/repos`, {headers})
@@ -32,12 +32,12 @@ export async function githubRepo(username: string, token? : string): Promise<Use
     }
 }
 
-export async function githubEvents(username: string, token? : string): Promise<Event[]>{
+export async function githubEvents(username: string | null | undefined, token? : string): Promise<Event[]>{
     try{
         const headers: HeadersInit = token ? { Authorization: `Bearer ${token}`} : {};
         const data = await fetch(`https://api.github.com/users/${username}/events/public`, {headers});
         const res : Event[] = await data.json();
-        return res;
+        return res.slice(0,6);
     }catch(error){
         throw new Error(`Failed to fetch: ${error}}`);
     }
