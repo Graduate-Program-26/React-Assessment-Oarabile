@@ -1,12 +1,22 @@
-import { githubUser } from "@/src/lib/github"
+import { githubEvents, githubRepo, githubUser } from "@/src/lib/github"
 
 export default async function Page({params}: {params : Promise<{username: string}>}){
     const {username} = await params;
-    const res = await githubUser(username);
+    const gitUser = await githubUser(username);
+    const gitRepo = await githubRepo(username);
+    const gitEvents = await githubEvents(username);
     return(
         <div>
-            <div>{res.login}</div>
-            <img src={res.avatar_url} alt="profile picture" />
+            <div>{gitUser.login}</div>
+            <img src={gitUser.avatar_url} alt="profile picture" />
+            <div>
+                {gitRepo.map((item) => (
+                    <div key={item.id}>
+                        <h3>{item.name}</h3>
+                        <p>{ (item.description) ? (item.description): "No description"}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )    
 }
