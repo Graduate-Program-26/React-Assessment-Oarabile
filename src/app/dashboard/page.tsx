@@ -1,5 +1,6 @@
 import { auth } from "@/src/lib/auth"
 import { githubEvents, githubRepo, githubUser } from "@/src/lib/github";
+import { notFound } from "next/navigation";
 
 export default async function Page(){
     try{
@@ -36,6 +37,6 @@ export default async function Page(){
             </main>
         )
     }catch{
-
+        notFound();
     }
 }
