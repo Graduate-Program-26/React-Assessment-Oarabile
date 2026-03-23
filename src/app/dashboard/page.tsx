@@ -33,6 +33,9 @@ export default async function Page(){
                             </div>
                         ))}
                     </div>
+                    <div>
+                        <img src={`https://ghchart.rshah.org/${userData.login}`} alt="GitHub contribution calendar" />
+                    </div>
                 </div>
             </main>
         )
