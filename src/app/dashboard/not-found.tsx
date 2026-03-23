@@ -1,4 +1,4 @@
-export default async function not_Found(){
+export default function not_Found(){
     return(
         <div>
             <img src="" alt="page has not been found" />
