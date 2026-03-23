@@ -14,9 +14,28 @@ export default async function Page({params}: {params : Promise<{username: string
                     <div key={item.id}>
                         <h3>{item.name}</h3>
                         <p>{ (item.description) ? (item.description): "No description"}</p>
+                        <div>
+                            {item.stargazers_count}
+                        </div>
+                        <div>
+                            {item.language}
+                        </div>
+                        <div>
+                            {item.updated_at}
+                        </div>
                     </div>
                 ))}
             </div>
+            <div>
+                {gitEvents.map((item)=>(
+                    <div>
+                        <div>{item.type}</div>
+                        <div>{item.repo.name}</div>
+                        <div>{item.created_at}</div>
+                    </div>
+                ))}
+            </div>
+
         </div>
-    )    
+    );    
 }
