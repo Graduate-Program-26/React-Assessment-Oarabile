@@ -23,7 +23,7 @@ export default function Home() {
           <button
             onClick={() => {
               if (Search) {
-                router.push(`/demo/${Search}`);
+                router.push(`/profile/${Search}`);
               } else {
                 //for now
                 alert("no user name was entered");
