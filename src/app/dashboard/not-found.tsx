@@ -1,7 +1,9 @@
+import Image from "next/image"
+
 export default function not_Found(){
     return(
         <div>
-            <img src="" alt="page has not been found" />
+            <Image src="" alt="user not found image"/>
             <h2>user not found</h2>
         </div>
     );
