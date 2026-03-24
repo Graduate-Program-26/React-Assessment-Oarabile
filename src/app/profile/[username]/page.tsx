@@ -35,7 +35,7 @@ export default async function Page({
         </div>
         <div>
           {gitEvents.map((item) => (
-            <div key={item.repo.name}>
+            <div key={item.id}>
               <div>{item.type}</div>
               <div>{item.repo.name}</div>
               <div>{item.created_at}</div>
