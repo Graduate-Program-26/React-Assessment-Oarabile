@@ -7,14 +7,14 @@ export default async function Page(){
         const session = await auth();
         const userData = await githubUser(session?.user?.name, session?.accessToken);
         const userEvents = await githubEvents(session?.user?.name, session?.accessToken);
-        const UserRepo = await githubRepo(session?.user?.name, session?.accessToken);
+        const userRepo = await githubRepo(session?.user?.name, session?.accessToken);
         return(
             <main>
                 <div>
                     <div>{userData.login}</div>
                     <img src={userData.avatar_url} alt="profile picture" />
                     <div>
-                        {UserRepo.map((item) => (
+                        {userRepo.map((item) => (
                             <div key={item.id}>
                                 <h3>{item.name}</h3>
                                 <p>{item.description ? item.description : "No description"}</p>
