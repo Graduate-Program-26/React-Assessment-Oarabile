@@ -1,6 +1,6 @@
 import { githubEvents, githubRepo, githubUser } from "@/src/lib/github";
 import { UserRepo, User, Event } from "@/src/types/types";
-import Image from "next/image";
+import { auth } from "@/src/lib/auth";
 import { notFound } from "next/navigation";
 
 export default async function Page({
@@ -14,9 +14,10 @@ export default async function Page({
   
   try {
     const { username } = await params;
-    gitUser = await githubUser(username);
-    gitRepo = await githubRepo(username);
-    gitEvents = await githubEvents(username);
+    const session = await auth();
+    gitUser = await githubUser(username, session?.accessToken);
+    gitRepo = await githubRepo(username, session?.accessToken);
+    gitEvents = await githubEvents(username, session?.accessToken);
   } catch {
     notFound();
   }
@@ -24,7 +25,7 @@ export default async function Page({
   return (
     <div>
       <div>{gitUser.login}</div>
-      <Image src={gitUser.avatar_url} alt="profile picture" />
+      <img src={gitUser.avatar_url} alt="profile picture" />
       <div>
         {gitRepo.map((item) => (
           <div key={item.id}>

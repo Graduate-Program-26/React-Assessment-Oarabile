@@ -1,7 +1,6 @@
 import { auth } from "@/src/lib/auth"
 import { githubEvents, githubRepo, githubUser } from "@/src/lib/github";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { User, Event, UserRepo } from "@/src/types/types";
 
 export default async function Page(){
@@ -23,7 +22,7 @@ export default async function Page(){
         <main>
             <div>
                 <div>{userData.login}</div>
-                <Image src={userData.avatar_url} alt="profile picture"/>
+                <img src={userData.avatar_url} alt="profile picture"/>
                 <div>
                     {userRepo.map((item) => (
                         <div key={item.id}>
@@ -45,7 +44,7 @@ export default async function Page(){
                     ))}
                 </div>
                 <div>
-                    <Image src={`https://ghchart.rshah.org/${userData.login}`} alt="GitHub contribution calendar" />
+                    <img src={`https://ghchart.rshah.org/${userData.login}`} alt="GitHub contribution calendar" />
                 </div>
             </div>
         </main>
