@@ -38,6 +38,7 @@ interface Repo{
 }
 
 export interface Event{
+    id: number;
     type: string;
     actor: Actor;
     repo:  Repo;
