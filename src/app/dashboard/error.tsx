@@ -14,25 +14,21 @@ export default function ErrorPage({
   }, [error]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <div>
-        <img
-          src="/Thinking face-rafiki.svg"
-          className="w-64 md:w-96 lg:w-[500px]"
-          alt="page has not been found"
-        />
-      </div>
-      <div>
-        <h2>Something went wrong!</h2>
-        <button
-          onClick={
-            // Attempt to recover by re-fetching and re-rendering the segment
-            () => reset()
-          }
+    <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mt-[5%]">
+            <h2 className="text-3xl font-extrabold">Something went wrong!</h2>
+            <img
+                src="/Thinking face-rafiki.svg"
+                className="w-64 md:w-96 lg:w-[500px]"
+                alt="page has not been found"
+            />
+        </div>
+        <button 
+            className="btn btn-soft bg-[#90CAF9]"
+            onClick={() => reset()}
         >
-          Try again
+            Try again
         </button>
-      </div>
     </div>
   );
 }
