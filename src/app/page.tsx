@@ -39,7 +39,6 @@ export default function Home() {
             </div>
           </div>
           
-
           <div>
             <img src="/Online resume-cuate.svg" className="w-64 md:w-96 lg:w-[600px]" alt="" />
           </div>

@@ -1,4 +1,4 @@
-import { Event, UserRepo } from "@/src/types/types";
+import { Event, User, UserList, UserRepo } from "@/src/types/types";
 
 export default function Card({ data }: { data: Event[] }) {
   return (
@@ -69,6 +69,32 @@ export function MiniCards({ data }: { data: UserRepo[] }) {
       ))}
     </div>
   );
+}
+
+export function UserListCard({data}: {data:User[]}){
+    return(
+        <div className="flex flex-wrap gap-[2%]">
+           {data.map((items) => (
+                <div className="card bg-base-100 w-96 shadow-sm">
+                    <figure>
+                        <img
+                        src={items.avatar_url}
+                        alt={items.login} />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title">
+                            {items.login}
+                            <div className="badge badge-secondary">Repos: {items.public_repos}</div>
+                        </h2>
+                        <p>{(items.bio) ? (items.bio) : (items.login) + " has no bio"}</p>
+                        <div className="card-actions justify-end">
+                            <div className="badge badge-outline">Last updated: {items.updated_at}</div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    )
 }
 
 export function AvatarImage({ image }: { image: string }) {
