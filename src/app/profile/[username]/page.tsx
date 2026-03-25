@@ -28,6 +28,7 @@ export default async function Page({
 
   return (
     <div>
+      
       <div className="flex justify-center items-center">
         <AvatarImage image={gitUser.avatar_url} />
         <div className="ml-[3%]">
