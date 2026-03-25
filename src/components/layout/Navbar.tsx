@@ -1,7 +1,12 @@
 import { auth } from "@/src/lib/auth";
+import { signOut } from "next-auth/react";
+import { SignOut } from "../auth/sign-out-button";
 
 export default async function Navbar() {
     const session = await auth();
+    async function handleSignOut(){
+        await signOut(); 
+    }
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -46,7 +51,6 @@ export default async function Navbar() {
             </div>
             <div className="navbar-end">
                 <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto mr-[2%]" />
-                <button className="btn btn-ghost btn-circle">
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
@@ -67,7 +71,7 @@ export default async function Navbar() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a>Logout</a>
+                                    <SignOut />
                                 </li>
                             </div>
                             
@@ -77,8 +81,8 @@ export default async function Navbar() {
                             </a>
                         )}
                     </ul>
-                    </div>
-                </button>
+                </div>
+        
             </div>
         </div>
     );
