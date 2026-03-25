@@ -3,7 +3,7 @@ export default async function NotFound() {
     <div className="flex flex-col items-center justify-center h-screen">
       <div>
         <img
-          src="/Thinking face-rafiki.svg"
+          src="/No data-rafiki.svg"
           className="w-64 md:w-96 lg:w-[500px]"
           alt="page has not been found"
         />
