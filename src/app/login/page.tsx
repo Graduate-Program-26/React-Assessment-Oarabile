@@ -11,7 +11,7 @@ export default async function Page(){
                 </div>
                 <div>
                     <img
-                    src="/No-data-rafiki.svg"
+                    src="/Tablet login-rafiki.svg"
                     className="w-64 md:w-96 lg:w-[500px]"
                     alt="page has not been found"
                     />

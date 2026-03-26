@@ -39,7 +39,7 @@ export default async function Navbar() {
             </div>
             <div className="navbar-center">
                 <img
-                src="https://img.icons8.com/?size=100&id=iEBcQcM9rnZ9&format=png&color=000000"
+                src="https://cdn-icons-png.flaticon.com/128/536/536452.png"
                 alt="github Icon"
                 className="h-12"
                 />
@@ -58,7 +58,7 @@ export default async function Navbar() {
                         <div className="w-10 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
-                                src={(session?.user?.image) ? (session?.user?.image) : ("https://cdn-icons-png.flaticon.com/128/456/456212.png")} 
+                                src={(session?.user?.image) ? (session?.user?.image) : ("https://cdn-icons-png.flaticon.com/128/3135/3135768.png")} 
                             />
                         </div>
                     </div>
