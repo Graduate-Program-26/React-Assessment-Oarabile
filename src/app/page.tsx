@@ -10,12 +10,12 @@ export default function Home() {
     <div className="">
       <main className="">
         <div className="flex items-center justify-center mt-[5%] flex-wrap">
-          <div>
+          <div className="mt-[20%] sm:mt-[0%]">
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold text-[#90CAF9]">Welcome Interviewer!</h1>
               <p className="py-6 text-xl opacity-80">Search for a GitHub user to view their professional <br />profile and repository stats.</p>
             </div>
-            <div className="flex">
+            <div className="flex ml-[5%] sm:ml-0 mr-[5%] sm:mr-0">
               <input
                 type="text"
                 placeholder="Enter User name"
