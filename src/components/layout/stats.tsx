@@ -2,7 +2,8 @@ import { User } from "@/src/types/types";
 
 export default function Stats({data}: {data: User}){
     return(
-        <div className="stats shadow">
+        <div className="flex justify-center px-4">
+        <div className="stats shadow w-full">
             <div className="stat">
                 <div className="stat-figure text-[#90CAF9]">
                     <svg
@@ -20,7 +21,7 @@ export default function Stats({data}: {data: User}){
                     </svg>
                 </div>
                 <div className="stat-title">Followers</div>
-                <div className="stat-value">{data.followers}</div>
+                <div className="stat-value text-sm sm:text-3xl">{data.followers}</div>
                 <div className="stat-desc">{data.created_at}</div>
             </div>
 
@@ -65,6 +66,7 @@ export default function Stats({data}: {data: User}){
                 <div className="stat-value">{data.public_repos}</div>
                 <div className="stat-desc">{data.updated_at}</div>
             </div>
+        </div>
         </div>
     )
 }

@@ -21,25 +21,27 @@ export default async function Page(){
 
     return(
         <main>
-            <div className="flex justify-center items-center">
+            <div className="flex flex-wrap justify-center items-center">
                 <AvatarImage image={userData.avatar_url} />
-                <div className="ml-[3%]">
+                <div className="ml-0 sm:ml-[3%] flex flex-col items-center sm:items-start mt-4 sm:mt-0">
                     <h1 className="text-5xl font-extrabold tracking-tight text-base-content mb-[4%]">{userData.login}</h1>
-                    <Stats data={userData}/>
+                    <div className="scale-55 sm:scale-105">
+                        <Stats data={userData}/>
+                    </div>
                 </div>
             </div>
-            <div className="flex justify-center">
-                <div className="mr-[2%]">
+            <div className="flex justify-center flex-col sm:flex-row items-center">
+                <div className="mr-[2%] sm:ml-[2%] sm:mt-0 mt-[5%]">
                     <Card data={userEvents}/>
                 </div>
-                <div>
+                <div className="sm:mt-0 mt-[5%]">
                     <h3 className="text-2xl font-extrabold">Repositories</h3>
                     <MiniCards data={userRepo}/>
                 </div>
             </div>
             <div className="mb-[2%]">
                 <h3 className=" ml-[18%] text-3xl font-extrabold m-[1.8%]">Chart</h3>
-                <div className="flex justify-center">
+                <div className="flex justify-center w-full overflow-x-auto sm:overflow-visible">
                     <img 
                     src={`https://ghchart.rshah.org/90CAF9/${userData.login}`} 
                     alt="GitHub contribution calendar"
