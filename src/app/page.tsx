@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="">
       <main className="">
-        <div className="flex items-center justify-center mt-[5%]">
+        <div className="flex items-center justify-center mt-[5%] flex-wrap">
           <div>
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold text-[#90CAF9]">Welcome Interviewer!</h1>
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           
           <div>
-            <img src="/Online resume-cuate.svg" className="w-64 md:w-96 lg:w-[600px]" alt="" />
+            <img src="/Online-resume-cuate.svg" className="w-64 md:w-96 lg:w-[600px]" alt="Hero Image"/>
           </div>
         </div>
       </main>

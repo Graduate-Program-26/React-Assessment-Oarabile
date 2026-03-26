@@ -1,12 +1,8 @@
 import { auth } from "@/src/lib/auth";
-import { signOut } from "next-auth/react";
 import { SignOut } from "../auth/sign-out-button";
 
 export default async function Navbar() {
     const session = await auth();
-    async function handleSignOut(){
-        await signOut(); 
-    }
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -44,7 +40,7 @@ export default async function Navbar() {
             <div className="navbar-center">
                 <img
                 src="https://img.icons8.com/?size=100&id=iEBcQcM9rnZ9&format=png&color=000000"
-                alt=""
+                alt="github Icon"
                 className="h-12"
                 />
                 <a className="btn btn-ghost text-xl ml-[-15] font-bold">GitDash</a>
