@@ -1,37 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# gitDash
 
-## Getting Started
+gitDash is a modern GitHub dashboard application built with **Next.js**, **TypeScript**, and **Zustand**. It allows users to search for GitHub users and view their repositories and activity, with optional login via **GitHub OAuth** for enhanced features.
 
-First, run the development server:
+You can try it live here: [https://react-assessment-oarabile.vercel.app/](https://react-assessment-oarabile.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Search GitHub Users:** Find any GitHub user and view their public repositories and activity, even when logged out.  
+- **OAuth Authentication:** Log in and out using GitHub OAuth for personalized sessions.  
+- **Dynamic Routing:** Routes automatically generate based on users and repositories.  
+- **Error Handling:** Friendly error pages when fetching fails.  
+- **Loading States:** Visual indicators when data is being fetched.  
+- **Styled with DaisyUI:** Modern UI components and themes for a clean interface.  
+- **Environment Variables:** Sensitive data managed via `.env.local`.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/docs/app/getting-started/project-structure) – React framework for server-rendered apps and API routes.  
+- [TypeScript](https://typescript-eslint.io/rules/no-explicit-any) – Strongly typed JavaScript.  
+- [Zustand](https://github.com/pmndrs/zustand) – Lightweight state management.  
+- [Auth.js (GitHub OAuth)](https://authjs.dev/getting-started/providers/github) – Authentication provider.  
+- [DaisyUI](https://daisyui.com/) – TailwindCSS component library for styling.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Authentication & Session Management
 
-## Deploy on Vercel
+- Log in and out via GitHub OAuth.  
+- Session data is stored and managed using Auth.js.  
+- Users can view public GitHub information even without logging in.  
+- Protected routes can be implemented via middleware for authenticated-only pages.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Learn more:  
+- [Auth.js Login & Logout](https://authjs.dev/getting-started/session-management/login)  
+- [Retrieve Session in App Router](https://authjs.dev/getting-started/session-management/get-session#retrieving-the-session-in-app-router)  
+- [Protect Routes](https://authjs.dev/getting-started/session-management/protecting)  
+- [Extending the Session](https://authjs.dev/guides/extending-the-session)  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# React-Assessment-Oarabile
+---
+
+## GitHub API Integration
+
+gitDash uses the GitHub REST API to fetch user data, repositories, and public events.  
+
+- [Get a User](https://docs.github.com/en/rest/users/users#get-a-user)  
+- [List Repositories for a User](https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user)  
+- [List Public Events for a User](https://docs.github.com/en/rest/activity/events#list-public-events-for-a-user)  
+- [Creating a GitHub OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)  
+
+Data fetching is handled efficiently with loading states and error catching to provide a smooth user experience.  
+
+---
+
+## Next.js Features Used
+
+- [Routing & Dynamic Routes](https://nextjs.org/docs/app/building-your-application/routing)  
+- [Defining Routes](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)  
+- [Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching)  
+- [Not Found Page](https://nextjs.org/docs/app/api-reference/functions/not-found)  
+- [Protecting Routes with Middleware](https://nextjs.org/docs/app/building-your-application/authentication#protecting-routes-with-middleware)  
+
+---
+
+## Additional Resources
+
+- [Auth.js GitHub Provider Setup](https://authjs.dev/getting-started/providers/github)  
+- [Auth.js TypeScript Setup](https://authjs.dev/getting-started/typescript)  
+- [Next.js Project Structure](https://nextjs.org/docs/app/getting-started/project-structure)  
+- [Array.sort Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)  
+
+---
+
+## License
+
+MIT License © 2026 Oarabile Mbewe
