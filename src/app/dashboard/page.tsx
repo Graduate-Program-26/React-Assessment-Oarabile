@@ -22,7 +22,9 @@ export default async function Page(){
     return(
         <main>
             <div className="flex flex-wrap justify-center items-center">
-                <AvatarImage image={userData.avatar_url} />
+                <a href={userData.html_url}>
+                    <AvatarImage image={userData.avatar_url} />
+                </a>
                 <div className="ml-0 sm:ml-[3%] flex flex-col items-center sm:items-start mt-4 sm:mt-0">
                     <h1 className="text-5xl font-extrabold tracking-tight text-base-content mb-[4%]">{userData.login}</h1>
                     <div className="scale-55 sm:scale-105">
