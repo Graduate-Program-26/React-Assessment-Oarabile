@@ -75,7 +75,7 @@ export function UserListCard({data}: {data:User[]}){
     return(
         <div className="flex flex-wrap gap-[2%]">
            {data.map((items) => (
-                <div className="card bg-base-100 w-96 shadow-sm">
+                <div className="card bg-base-100 w-96 shadow-sm" key={items.id}>
                     <figure>
                         <img
                         src={items.avatar_url}

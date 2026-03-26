@@ -1,5 +1,6 @@
 import { auth } from "@/src/lib/auth";
 import { SignOut } from "../auth/sign-out-button";
+import Link from "next/link";
 
 export default async function Navbar() {
     const session = await auth();
@@ -29,10 +30,10 @@ export default async function Navbar() {
                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
                     <li>
-                        <a href="/">Home</a>
+                        <Link href="/">Home</Link>
                     </li>
                     <li>
-                        <a href="/dashboard">dashboard</a>
+                        <Link href="/dashboard">dashboard</Link>
                     </li>
                 </ul>
                 </div>
