@@ -80,5 +80,6 @@ Data fetching is handled efficiently with loading states and error catching to p
 ![alt text](<Screenshot 2026-03-26 at 17.40.39.png>) 
 ![alt text](<Screenshot 2026-03-26 at 17.40.47.png>) 
 ![alt text](<Screenshot 2026-03-26 at 17.41.00.png>)
+![alt text](<Screenshot 2026-03-26 at 17.47.57.png>)
 
 MIT License © 2026 Oarabile Mbewe
