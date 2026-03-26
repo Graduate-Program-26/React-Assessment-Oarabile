@@ -6,7 +6,6 @@ import {AvatarImage, MiniCards} from "@/src/components/layout/card";
 import Card from "@/src/components/layout/card";
 import Stats from "@/src/components/layout/stats";
 
-
 export default async function Page({
   params,
 }: {
