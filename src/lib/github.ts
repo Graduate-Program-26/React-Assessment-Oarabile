@@ -1,4 +1,4 @@
-import { Event, User, UserRepo } from "../types/types";
+import { Event, User, UserList, UserRepo } from "../types/types";
 
 export async function githubUser(username: string | null | undefined, token? : string): Promise<User>{
     try{
@@ -38,6 +38,17 @@ export async function githubEvents(username: string | null | undefined, token? :
         const data = await fetch(`https://api.github.com/users/${username}/events/public`, {headers});
         const res : Event[] = await data.json();
         return res.slice(0,6);
+    }catch(error){
+        throw new Error(`Failed to fetch: ${error}}`);
+    }
+}
+
+export async function githubUserList(search:string, token?: string): Promise<UserList> {
+    try{
+        const headers: HeadersInit = token ? { Authorization: `Bearer ${token}`} : {};
+        const data = await fetch(`https://api.github.com/search/users?q=${search}+language:assembly&sort=stars&order=desc`, {headers})
+        const res = await data.json();
+        return res
     }catch(error){
         throw new Error(`Failed to fetch: ${error}}`);
     }

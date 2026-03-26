@@ -2,9 +2,10 @@ import { auth } from "@/src/lib/auth"
 import { githubEvents, githubRepo, githubUser } from "@/src/lib/github";
 import { notFound } from "next/navigation";
 import { User, Event, UserRepo } from "@/src/types/types";
+import Card, { AvatarImage, MiniCards } from "@/src/components/layout/card";
+import Stats from "@/src/components/layout/stats";
 
 export default async function Page(){
-
     let userData : User;
     let userEvents : Event[]; 
     let userRepo: UserRepo [];
@@ -20,31 +21,32 @@ export default async function Page(){
 
     return(
         <main>
-            <div>
-                <div>{userData.login}</div>
-                <img src={userData.avatar_url} alt="profile picture"/>
-                <div>
-                    {userRepo.map((item) => (
-                        <div key={item.id}>
-                            <h3>{item.name}</h3>
-                            <p>{item.description ? item.description : "No description"}</p>
-                            <div>{item.stargazers_count}</div>
-                            <div>{item.language}</div>
-                            <div>{item.updated_at}</div>
-                        </div>
-                    ))}
+            <div className="flex flex-wrap justify-center items-center">
+                <AvatarImage image={userData.avatar_url} />
+                <div className="ml-0 sm:ml-[3%] flex flex-col items-center sm:items-start mt-4 sm:mt-0">
+                    <h1 className="text-5xl font-extrabold tracking-tight text-base-content mb-[4%]">{userData.login}</h1>
+                    <div className="scale-55 sm:scale-105">
+                        <Stats data={userData}/>
+                    </div>
                 </div>
-                <div>
-                    {userEvents.map((item) => (
-                        <div key={item.id}>
-                            <div>{item.type}</div>
-                            <div>{item.repo.name}</div>
-                            <div>{item.created_at}</div>
-                        </div>
-                    ))}
+            </div>
+            <div className="flex justify-center flex-col sm:flex-row items-center">
+                <div className="mr-[2%] sm:ml-[2%] sm:mt-0 mt-[5%]">
+                    <Card data={userEvents}/>
                 </div>
-                <div>
-                    <img src={`https://ghchart.rshah.org/${userData.login}`} alt="GitHub contribution calendar" />
+                <div className="sm:mt-0 mt-[5%]">
+                    <h3 className="text-2xl font-extrabold">Repositories</h3>
+                    <MiniCards data={userRepo}/>
+                </div>
+            </div>
+            <div className="mb-[2%]">
+                <h3 className=" ml-[18%] text-3xl font-extrabold m-[1.8%]">Chart</h3>
+                <div className="flex justify-center w-full overflow-x-auto sm:overflow-visible">
+                    <img 
+                    src={`https://ghchart.rshah.org/90CAF9/${userData.login}`} 
+                    alt="GitHub contribution calendar"
+                    className="w-5xl " 
+                    />
                 </div>
             </div>
         </main>

@@ -44,3 +44,9 @@ export interface Event{
     repo:  Repo;
     created_at: string;
 }
+
+export interface UserList{
+    total_count: number;
+    incomplete_results: boolean;
+    items: User[];
+}
