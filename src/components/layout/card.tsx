@@ -44,57 +44,33 @@ export function MiniCards({ data }: { data: UserRepo[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 h-[65%]">
       {data.map((item) => (
-        <div
-          className="stats shadow-sm border border-[#90CAF9] bg-base-100"
-          key={item.id}
-        >
-          <div className="stat">
-            <div className="stat-title text-xs flex justify-between items-center">
-              <span>Rating: {item.stargazers_count}</span>
-              <div className="badge badge-outline badge-xs text-[#90CAF9]">
-                Public
+          <div
+            key={item.id}
+            className="stats shadow-sm border border-[#90CAF9] bg-base-100"
+          >
+            <a href={item.html_url}>
+              <div className="stat">
+                <div className="stat-title text-xs flex justify-between items-center">
+                  <span>Rating: {item.stargazers_count}</span>
+                  <div className="badge badge-outline badge-xs text-[#90CAF9]">
+                    Public
+                  </div>
+                </div>
+                <div className="stat-value text-lg truncate text-[#90CAF9]">
+                  {item.name}
+                </div>
+                <div className="stat-desc font-medium">
+                  Language:{" "}
+                  <span className="text-base-content">
+                    {item.language || "Plain Text"}
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className="stat-value text-lg truncate text-[#90CAF9]">
-              {item.name}
-            </div>
-            <div className="stat-desc font-medium">
-              Language:{" "}
-              <span className="text-base-content">
-                {item.language || "Plain Text"}
-              </span>
-            </div>
+            </a>
           </div>
-        </div>
       ))}
     </div>
   );
-}
-
-export function UserListCard({data}: {data:User[]}){
-    return(
-        <div className="flex flex-wrap gap-[2%]">
-           {data.map((items) => (
-                <div className="card bg-base-100 w-96 shadow-sm">
-                    <figure>
-                        <img
-                        src={items.avatar_url}
-                        alt={items.login} />
-                    </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">
-                            {items.login}
-                            <div className="badge badge-secondary">Repos: {items.public_repos}</div>
-                        </h2>
-                        <p>{(items.bio) ? (items.bio) : (items.login) + " has no bio"}</p>
-                        <div className="card-actions justify-end">
-                            <div className="badge badge-outline">Last updated: {items.updated_at}</div>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
-    )
 }
 
 export function AvatarImage({ image }: { image: string }) {
