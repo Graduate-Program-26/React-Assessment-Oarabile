@@ -20,7 +20,7 @@ export default function ErrorPage({
             <h2 className="text-3xl font-extrabold">Something went wrong!</h2>
             <img
                 src="/Thinking face-rafiki.svg"
-                className="w-64 md:w-96 lg:w-[500px]"
+                className="w-64 md:w-96 lg:w-125"
                 alt="page has not been found"
             />
         </div>

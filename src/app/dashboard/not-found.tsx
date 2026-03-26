@@ -4,7 +4,7 @@ export default function NotFound(){
             <div>
                 <img
                 src="/No-data-rafiki.svg"
-                className="w-64 md:w-96 lg:w-[500px]"
+                className="w-64 md:w-96 lg:w-125"
                 alt="page has not been found"
                 />
             </div>

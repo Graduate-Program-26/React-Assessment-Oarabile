@@ -22,6 +22,16 @@ export default function Home() {
                 value={Search}
                 className="input input-bordered focus:outline-[#90CAF9]"
                 onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    if (Search) {
+                      router.push(`/profile/${Search}`);
+                      setSearch("");
+                    } else {
+                      alert("no user name was entered");
+                    }
+                  }
+                }}
               />
               <button
                 onClick={() => {
@@ -40,7 +50,7 @@ export default function Home() {
           </div>
           
           <div>
-            <img src="/Online-resume-cuate.svg" className="w-64 md:w-96 lg:w-[600px]" alt="Hero Image"/>
+            <img src="/Online-resume-cuate.svg" className="w-64 md:w-96 lg:w-150" alt="Hero Image"/>
           </div>
         </div>
       </main>
